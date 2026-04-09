@@ -5,7 +5,7 @@ Amazon RDS を使用したMySQLデータベースのMulti-AZ構成です。
 2つのアベイラビリティーゾーンに配置し、自動フェイルオーバーによる高可用性を実現しました。
 
 ## アーキテクチャ
-![構成図](rds_multi_az_architecture.svg)
+![構成図](aws-rds.png)
 
 ## 使用サービス
 - Amazon RDS（MySQL 8.4.7）
