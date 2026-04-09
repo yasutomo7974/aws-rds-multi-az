@@ -1,2 +1,25 @@
-# aws-rds-multi-az
-RDS Multi-AZ構成（MySQL / Private Subnet / フェイルオーバー対応）
+# RDS Multi-AZ 構成
+
+## 概要
+Amazon RDS を使用したMySQLデータベースのMulti-AZ構成です。
+2つのアベイラビリティーゾーンに配置し、自動フェイルオーバーによる高可用性を実現しました。
+
+## アーキテクチャ
+![構成図](rds_multi_az_architecture.svg)
+
+## 使用サービス
+- Amazon RDS（MySQL 8.4.7）
+- Multi-AZ（自動フェイルオーバー）
+- Amazon VPC / Private Subnet
+- セキュリティグループ（ポート3306制限）
+
+## 構成のポイント
+- プライマリ：ap-northeast-1c
+- スタンバイ：ap-northeast-1d（同期レプリケーション）
+- パブリックアクセスなし（VPC内からのみ接続可）
+- インバウンドは10.0.0.0/24のみ許可
+
+## 可用性
+- マルチAZ：あり
+- 自動フェイルオーバー：対応
+- ストレージ自動スケーリング：有効（最大1000GiB）
